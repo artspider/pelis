@@ -31,7 +31,7 @@ class UsersController extends Controller
     function index(Request $request){
         if($request->isJson()){
             $users = User::all();
-            return response()->json('{ results:'. $users . '}', 200);
+            return response()->json('{ "results" :'. $users . '}', 200);
         }
         return response()->json(['error' => 'no autorizado'], 401);
     }
