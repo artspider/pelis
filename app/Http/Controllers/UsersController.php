@@ -32,7 +32,7 @@ class UsersController extends Controller
         if($request->isJson()){
             $users = User::all();
             //$users = User::all('name','email');
-            return response()->json('{ "results" :'. $users . '}', 200);
+            return response()->json($users, 200);
         }
         return response()->json(['error' => 'no autorizado'], 401);
     }
