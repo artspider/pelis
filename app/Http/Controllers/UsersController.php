@@ -16,7 +16,7 @@ class UsersController extends Controller
                 $user = User::where('username', $data['username'])->first();
 
                 if ($user && Hash::check($data['password'], $user->password)){
-                    return response()->json($user, 200);
+                    return response()->json(['api_key' => $user.api_key], 200);
                 }
                 else {
                     return response()->json(['error' => 'no hay contenido'], 406);
